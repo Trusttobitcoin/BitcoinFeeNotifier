@@ -57,15 +57,29 @@ End Function
 ### Creating the System Tray Icon
 
 ```vb.net
-Private Function CreateTextIcon(text As String) As Icon
-    Dim bitmap As New Bitmap(16, 16)
-    Using g As Graphics = Graphics.FromImage(bitmap)
-        g.Clear(Color.Transparent)
+    Private Function CreateTextIcon(text As String) As Icon
+        Dim bitmap As New Bitmap(16, 16)
+        Dim g As Graphics = Graphics.FromImage(bitmap)
+
+        g.Clear(Color.Transparent) ' Set the background to transparent
         g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit
-        g.DrawString(text, New Font("Microsoft Sans Serif", 9, FontStyle.Bold), Brushes.White, 0, 0)
-    End Using
-    Return Icon.FromHandle(bitmap.GetHicon())
-End Function
+
+        ' Adjust the font size as much as possible
+        Dim fontSize As Integer = 9 ' Experiment with this value
+        Dim font As New Font("Microsoft Sans Serif", fontSize, FontStyle.Bold)
+
+        ' Measure the string to center it in the bitmap
+        Dim stringSize As SizeF = g.MeasureString(text, font)
+        Dim x As Single = (16 - stringSize.Width) / 2
+        Dim y As Single = (16 - stringSize.Height) / 2
+
+        ' Draw the string on the bitmap with white color
+        g.DrawString(text, font, Brushes.White, x, y)
+        g.Dispose()
+
+        ' Create an icon from the bitmap
+        Return Icon.FromHandle(bitmap.GetHicon())
+    End Function
 ```
 
 ### Timer Event for Periodic Updates
