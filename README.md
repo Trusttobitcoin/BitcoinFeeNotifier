@@ -28,7 +28,7 @@ BitcoinFeeNotifier is a VB.NET script designed to display the current Bitcoin tr
    - Create a new Windows Forms App (.NET Framework) project in VB.NET.
 
 2. **Add the Provided Script**:
-   - Replace the content of the auto-generated `Form1.vb` with the provided `BitcoinFeeNotifier.vb` script.
+   - Replace the content of the auto-generated `Form1.vb` with the provided `Form1.vb` script.
 
 3. **Install Required NuGet Package**:
    - Right-click on your project in the Solution Explorer.
