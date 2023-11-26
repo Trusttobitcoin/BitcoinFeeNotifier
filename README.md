@@ -6,6 +6,9 @@ BitcoinFeeNotifier is a VB.NET script designed to display the current Bitcoin tr
 
 ![BitcoinFeeNotifier Screenshot](https://github.com/Trusttobitcoin/BitcoinFeeNotifier/blob/main/ScreenShot.JPG?raw=true)
 
+## Using Mempool.space APIs
+
+The BitcoinFeeNotifier application utilizes the [Mempool.space API](https://mempool.space/api) to fetch real-time data on Bitcoin transaction fees. This API provides accurate and current blockchain data, ensuring that the application displays the most recent transaction fee information.
 
 ## Features
 
